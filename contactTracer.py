@@ -107,6 +107,7 @@ def start():
             exit = input("Do you want to exit the program? (y/n): ")
             if exit.lower == "y":
                 print("\n\t              \33[1m\33[3m\33[32mThank you for using! You may now exit.\33[0m")
+                sys.exit("\n")
             elif exit.lower == "n":
                 print(border)
                 return intro()
