@@ -45,13 +45,6 @@ import time, sys
 border = ("\n\33[34m**********************************************************************\33[0m\n")
 starts ="\n\t              \33[3m\33[32mStarting!\33[0m"
 
-user0 = {
-    "Full name": "Jodie",
-    "Age": 56,
-    "Address": "Batangas",
-    "Phone Number": "0933787987"
-}
-
 def typePrint(text):
     for character in text:
         sys.stdout.write(character)
@@ -61,7 +54,7 @@ def typePrint(text):
 def intro():
     typePrint("\n\t \33[1m\33[32mGood day, Welcome to Krizzy's Contact Tracer!\33[0m\n")
     time.sleep(1)
-    typePrint("           Where you can find and add your details.\n")
+    typePrint("\33[3m           Where you can find and add your details.\33[0m\n")
     time.sleep(1)
 
 def menu():
@@ -92,10 +85,19 @@ def start():
                 "Address": add,
                 "Phone Number": num
             }
+
+            dict.update(user1)
+            print("\n\t              \33[1m\33[3m\33[32mYour info has been saved!\33[0m")
             
-            user0.update(user1)
-            print("\n\t              \33[3m\33[32mSaved!\33[0m")
-            sys.exit("\n")
+        elif user == '2':
+            ask = input("Type the full name here: ")
+            if ask in user1:
+                print("\n\t              \33[1m\33[3m\33[32mExisting!\33[0m")
+                for key, value in user1.items():
+                    print(key, ":", value)
+            else:
+                print("\t\33[35m\33[1m        Data cannot be found. Try checking your spelling and captilization!\33[0m")
+
 
 intro()
 menu()
