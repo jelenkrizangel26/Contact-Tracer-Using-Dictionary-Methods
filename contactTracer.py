@@ -42,7 +42,15 @@
 
 import time, sys
 
-border = ("\n\33[34m*************************************************************\33[0m\n")
+border = ("\n\33[34m**********************************************************************\33[0m\n")
+starts ="\n\t              \33[3m\33[32mStarting!\33[0m"
+
+user0 = {
+    "Full name": "Jodie",
+    "Age": 56,
+    "Address": "Batangas",
+    "Phone Number": "0933787987"
+}
 
 def typePrint(text):
     for character in text:
@@ -51,7 +59,7 @@ def typePrint(text):
         time.sleep(0.05)
 
 def intro():
-    typePrint("\n\t \33[1m\33[32mGood day,Welcome to Krizzy's Contact Tracer!\33[0m\n")
+    typePrint("\n\t \33[1m\33[32mGood day, Welcome to Krizzy's Contact Tracer!\33[0m\n")
     time.sleep(1)
     typePrint("           Where you can find and add your details.\n")
     time.sleep(1)
@@ -65,5 +73,25 @@ def menu():
     print(list[1])
     print(list[2])
 
+def start():
+    while True:
+        print(border)
+        user = input("What do you want to do? (1-3): ")
+        if user == '1':
+            print(border)
+            print(starts)
+            print("Enter your details:\n")
+            user1={
+                input("Full name: "),
+                input("Age: "),
+                input("Adress" ),
+                input("Phone Number: ")
+                }
+            print(user1)
+            user0.update(user1)
+            print("\n\t              \33[3m\33[32mSaved!\33[0m")
+            sys.exit("\n")
+
 intro()
 menu()
+start()
