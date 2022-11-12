@@ -81,13 +81,18 @@ def start():
             print(border)
             print(starts)
             print("Enter your details:\n")
-            user1={
-                input("Full name: "),
-                input("Age: "),
-                input("Adress" ),
-                input("Phone Number: ")
-                }
-            print(user1)
+            name = input("Full name: "),
+            age = input("Age: "),
+            add = input("Adress: " ),
+            num = input("Phone Number: ")
+            #make the dictionary
+            user1 = {
+                "Fullname": name,
+                "Age": age,
+                "Address": add,
+                "Phone Number": num
+            }
+            
             user0.update(user1)
             print("\n\t              \33[3m\33[32mSaved!\33[0m")
             sys.exit("\n")
