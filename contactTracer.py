@@ -108,12 +108,6 @@ def start():
             if exit.lower == "y":
                 print("\n\t              \33[1m\33[3m\33[32mThank you for using! You may now exit.\33[0m")
                 sys.exit("\n")
-            elif exit.lower == "n":
-                print(border)
-                return intro()
-            else: 
-                print("\t\33[35m\33[1m        Sorry your input must be a y or n!\33[0m")
-                return menu()
 intro()
 menu()
 start()
