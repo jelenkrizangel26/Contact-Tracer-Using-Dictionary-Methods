@@ -45,6 +45,10 @@ import time, sys
 border = ("\n\33[34m**********************************************************************\33[0m\n")
 starts ="\n\t              \33[3m\33[32mStarting!\33[0m"
 
+info = {
+    "Jhewel Madrigal": ["10","Pulo", "0956878469",]
+    }
+
 def typePrint(text):
     for character in text:
         sys.stdout.write(character)
@@ -74,31 +78,41 @@ def start():
             print(border)
             print(starts)
             print("Enter your details:\n")
-            name = input("Full name: "),
-            age = input("Age: "),
-            add = input("Adress: " ),
-            num = input("Phone Number: ")
+            name = input("Full name: ")
+            age = int(input("Age: "))
+            add = input("Adress: " )
+            num = (input("Phone Number: "))
+            
             #make the dictionary
             user1 = {
-                "Fullname": name,
-                "Age": age,
-                "Address": add,
-                "Phone Number": num
+                " Fullname": name,
+                " Age": age,
+                " Address": add,
+                " Phone Number": num
             }
-
-            dict.update(user1)
             print("\n\t              \33[1m\33[3m\33[32mYour info has been saved!\33[0m")
             
         elif user == '2':
+            print(starts)
             ask = input("Type the full name here: ")
-            if ask in user1:
-                print("\n\t              \33[1m\33[3m\33[32mExisting!\33[0m")
-                for key, value in user1.items():
-                    print(key, ":", value)
+            if ask == name:
+                print("\t", user1)
+
             else:
-                print("\t\33[35m\33[1m        Data cannot be found. Try checking your spelling and captilization!\33[0m")
+                print("\t\33[1m\33[3m\33[32mSorry your search is not on the system.\33[0m")
+                print("\t\33[1m\33[3m\33[32mTry adding it or check the spelling and capitilization\33[0m")
+                
 
-
+        elif user == '3':
+            exit = input("Do you want to exit the program? (y/n): ")
+            if exit.lower == "y":
+                print("\n\t              \33[1m\33[3m\33[32mThank you for using! You may now exit.\33[0m")
+            elif exit.lower == "n":
+                print(border)
+                return intro()
+            else: 
+                print("\t\33[35m\33[1m        Sorry your input must be a y or n!\33[0m")
+                return menu()
 intro()
 menu()
 start()
