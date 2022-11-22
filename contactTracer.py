@@ -89,10 +89,10 @@ def start():
             
             #make the dictionary
             user_input = {
-                " Fullname": name,
-                " Age": age,
-                " Address": add,
-                " Phone Number": num
+                "Fullname": name,
+                "Age": age,
+                "Address": add,
+                "Phone Number": num
             }
             records[name] = user_input
             print("\n\t              \33[1m\33[3m\33[32mYour info has been saved!\33[0m")
@@ -119,6 +119,8 @@ def start():
                 sys.exit("\n")
 def main():
     intro()
+    menu()
+    start()
     menu()
     start()
 
