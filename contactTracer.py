@@ -45,8 +45,12 @@ import time, sys
 border = ("\n\33[34m**********************************************************************\33[0m\n")
 starts ="\n\t              \33[3m\33[32mStarting!\33[0m"
 
-info = {
-    "Jhewel Madrigal": ["10","Pulo", "0956878469",]
+records = {
+    "Jhewel" : {
+        "Age" : "11",
+        "Address" : "Pulo",
+        "Phone Number" : "095678490356"
+    }
     }
 
 def typePrint(text):
@@ -84,20 +88,25 @@ def start():
             num = (input("Phone Number: "))
             
             #make the dictionary
-            user1 = {
+            user_input = {
                 " Fullname": name,
                 " Age": age,
                 " Address": add,
                 " Phone Number": num
             }
+            records[name] = user_input
             print("\n\t              \33[1m\33[3m\33[32mYour info has been saved!\33[0m")
             
         elif user == '2':
             print(starts)
             ask = input("Type the full name here: ")
-            if ask == name:
-                print("\t", user1)
-
+            if ask in records:
+                for key in records.get(ask), records:
+                    print("\tAge: ", key.get('Age'))
+                    print("\tAddress: ", key.get('Address'))
+                    print("\tPhone Number: ", key.get('Phone Number'))
+                    break
+                break
             else:
                 print("\t\33[1m\33[3m\33[32mSorry your search is not on the system.\33[0m")
                 print("\t\33[1m\33[3m\33[32mTry adding it or check the spelling and capitilization\33[0m")
@@ -108,6 +117,9 @@ def start():
             if exit == 'y':
                 print("\n\t              \33[1m\33[3m\33[32mThank you for using! You may now exit.\33[0m")
                 sys.exit("\n")
-intro()
-menu()
-start()
+def main():
+    intro()
+    menu()
+    start()
+
+main()
